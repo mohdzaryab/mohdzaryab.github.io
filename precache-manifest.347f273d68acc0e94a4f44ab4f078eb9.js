@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "72526abe927b002b17b8b8fa24895200",
+    "revision": "f5e057b8cc5fcc48d7d1dee2a0e69d70",
     "url": "/index.html"
   },
   {
-    "revision": "af361a78966055b71316",
-    "url": "/static/css/main.7f826ad6.chunk.css"
+    "revision": "29c912e419d4abe8d7f8",
+    "url": "/static/css/main.cece1e75.chunk.css"
   },
   {
     "revision": "15a4ca273af9e95db4b0",
@@ -16,40 +16,40 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.be96fca9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "af361a78966055b71316",
-    "url": "/static/js/main.d86b3029.chunk.js"
+    "revision": "29c912e419d4abe8d7f8",
+    "url": "/static/js/main.4ae1347c.chunk.js"
   },
   {
     "revision": "a2b06d06b3fd350466c6",
     "url": "/static/js/runtime-main.aca42626.js"
   },
   {
-    "revision": "bc8f9b11833476a2c8d98fd9b5629f23",
-    "url": "/static/media/Appetizer Mockup.bc8f9b11.jpg"
+    "revision": "f6e11ff01e4b63579d702cb925929012",
+    "url": "/static/media/Appetizer Mockup.f6e11ff0.webp"
   },
   {
-    "revision": "2580207df1e6b474fb1c6e2fc6dfd3ab",
-    "url": "/static/media/BurgerBuilder Mockup.2580207d.jpg"
+    "revision": "a58b543b448a4363911abd4c9a5ab7d8",
+    "url": "/static/media/BurgerBuilder Mockup.a58b543b.webp"
   },
   {
-    "revision": "285d84e07c9f0fc1047e85da191546e9",
-    "url": "/static/media/P1.285d84e0.jpg"
+    "revision": "0d18a9e4e8b4eaeb57cc9a4510669523",
+    "url": "/static/media/P1.0d18a9e4.webp"
   },
   {
-    "revision": "f3c46a9e98fa82d504a1be7e34657966",
-    "url": "/static/media/P2.f3c46a9e.jpg"
+    "revision": "d831d0b43985e1b48add92312e3bf7a0",
+    "url": "/static/media/P2.d831d0b4.webp"
   },
   {
-    "revision": "42d2cdd7549c170061fd37b7ae3abd4e",
-    "url": "/static/media/P3.42d2cdd7.jpg"
+    "revision": "776840a7368c7b65a5ecdbd53affdee6",
+    "url": "/static/media/P3.776840a7.webp"
   },
   {
-    "revision": "9148f2739419f4aa7f85f3e5b68435ed",
-    "url": "/static/media/QuickChat.9148f273.jpg"
+    "revision": "dd3eb05c72c925dd9ff95ae449a56313",
+    "url": "/static/media/QuickChat.dd3eb05c.webp"
   },
   {
-    "revision": "d891c0329a40c74a0f0539a97ff0d227",
-    "url": "/static/media/SilentMe.d891c032.jpg"
+    "revision": "c9208431d2fff24f3720f1ba1789f87f",
+    "url": "/static/media/SilentMe.c9208431.webp"
   },
   {
     "revision": "0a799148a50bb02c6f380eabd8d97559",
