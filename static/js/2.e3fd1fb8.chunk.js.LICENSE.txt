@@ -17,7 +17,7 @@ object-assign
     */
 
 /*!
-  * Scrolloverflow 2.0.5 module for fullPage.js >= 3
+  * Scrolloverflow 2.0.6 module for fullPage.js >= 3
   * https://github.com/alvarotrigo/fullPage.js
   * @license MIT licensed
   *
@@ -25,7 +25,7 @@ object-assign
   */
 
 /*!
-  * fullPage 3.0.8 - Extensions 0.1.9
+  * fullPage 3.1.0 - Extensions 0.2.2
   * https://github.com/alvarotrigo/fullPage.js
   * @license http://alvarotrigo.com/fullPage/extensions/#license
   *
@@ -33,7 +33,7 @@ object-assign
   */
 
 /*!
- * @fullpage/react-fullpage 0.1.17
+ * @fullpage/react-fullpage 0.1.19
  * https://github.com/alvarotrigo/react-fullpage
  * @license https://github.com/alvarotrigo/react-fullpage#license
  *
@@ -41,7 +41,7 @@ object-assign
  */
 
 /*!
-* Scrolloverflow 2.0.6 module for fullPage.js >= 3
+* Scrolloverflow 2.0.7 module for fullPage.js >= 3
 * https://github.com/alvarotrigo/fullPage.js
 * @license MIT licensed
 *
@@ -49,7 +49,7 @@ object-assign
 */
 
 /*!
-* Scrolloverflow 2.0.6 module for fullPage.js >= 3
+* Scrolloverflow 2.0.7 module for fullPage.js >= 3
 * https://github.com/alvarotrigo/fullPage.js
 */
 
