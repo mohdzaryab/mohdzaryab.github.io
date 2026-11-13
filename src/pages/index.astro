@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { profile, marquee, now, projects, archive, offscreen } from '../data';
+import { profile, marquee, now, projects, archive } from '../data';
 
 const title = `${profile.name} · ${profile.role}`;
 const description = `${profile.name} is a ${profile.role} at ${profile.company}, building AI video tools, macOS apps and interactive web experiences.`;
@@ -212,22 +212,9 @@ const pad = (n: number) => String(n).padStart(2, '0');
         </ul>
       </section>
 
-      <!-- OFFSCREEN -->
-      <section class="section offscreen">
-        <div class="section-label mono">(05) Off-screen</div>
-        <div class="off-grid">
-          {offscreen.map((o, i) => (
-            <div class="off-item" data-reveal data-delay={String(i * 0.1)}>
-              <span class="off-emoji">{o.emoji}</span>
-              <span class="off-text">{o.text}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <!-- CONTACT -->
       <section id="contact" class="contact">
-        <div class="section-label mono">(06) Contact</div>
+        <div class="section-label mono">(05) Contact</div>
         <h2 class="contact-title">
           <span class="line"><span data-reveal-title>Let's build</span></span>
           <span class="line"><em data-reveal-title>something good.</em></span>

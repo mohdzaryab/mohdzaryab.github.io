@@ -141,9 +141,3 @@ export const archive = [
     image: '/media/burger.webp',
   },
 ];
-
-export const offscreen = [
-  { emoji: '🎤', text: 'I sing' },
-  { emoji: '📝', text: 'I write poems & songs' },
-  { emoji: '🏍️', text: 'Certified travel freak' },
-];

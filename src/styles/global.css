@@ -772,41 +772,6 @@ em {
   object-fit: cover;
 }
 
-/* ---------- off-screen ---------- */
-.off-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.off-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 28px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), transparent);
-  transition: transform 0.6s var(--ease), border-color 0.4s;
-}
-.off-item:hover {
-  transform: translateY(-6px) rotate(-1deg);
-  border-color: rgba(185, 164, 255, 0.4);
-}
-.off-emoji {
-  font-size: 40px;
-}
-.off-text {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(24px, 2.2vw, 32px);
-  line-height: 1.1;
-}
-@media (max-width: 800px) {
-  .off-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ---------- contact ---------- */
 .contact {
   padding: clamp(96px, 16vh, 180px) var(--pad) 32px;
