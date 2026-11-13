@@ -1,0 +1,262 @@
+---
+import '../styles/global.css';
+import { profile, marquee, now, projects, archive, offscreen } from '../data';
+
+const title = `${profile.name} · ${profile.role}`;
+const description = `${profile.name} is a ${profile.role} at ${profile.company}, building AI video tools, macOS apps and interactive web experiences.`;
+const site = 'https://mohdzaryab.github.io';
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#06060a" />
+    <link rel="canonical" href={site} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={site} />
+    <meta property="og:image" content={`${site}/og.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="loader" aria-hidden="true">
+      <span class="mono">Loading experience</span>
+      <span id="loader-count" class="loader-count">000</span>
+    </div>
+
+    <div id="cursor" aria-hidden="true"><span id="cursor-label"></span></div>
+    <div id="archive-preview" aria-hidden="true"><img alt="" /></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a href="#top" class="logo" data-magnetic="0.4" aria-label="Back to top">MZ<span>.</span></a>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#archive">Archive</a>
+        <a href="#contact" class="nav-cta" data-magnetic>Say hi</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <canvas id="gl" aria-hidden="true"></canvas>
+        <div class="hero-meta mono" data-hero-fade>
+          <span><i class="pulse"></i> {profile.role} @ {profile.company}</span>
+          <span>{profile.location} · <span id="clock" data-tz={profile.timezone}>--:--:--</span> IST</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="line"><span data-split-chars>{profile.first}</span></span>
+          <span class="line line-2"><em data-split-chars>{profile.last}</em></span>
+        </h1>
+        <div class="hero-bottom">
+          <p class="hero-sub" data-hero-fade>
+            I design &amp; engineer products people love to use. Right now: AI video tools at{' '}
+            <a href={profile.companyUrl} target="_blank" rel="noopener">{profile.company}</a>.
+            On weekends: tiny, delightful Mac apps.
+          </p>
+          <a href="#about" class="scroll-cue mono" data-hero-fade data-magnetic>
+            <span>Scroll</span>
+            <svg width="14" height="22" viewBox="0 0 14 22" fill="none"><path d="M7 1v19M1 14l6 6 6-6" stroke="currentColor" stroke-width="1.5" /></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- MARQUEE -->
+      <div class="marquee" aria-hidden="true">
+        {[0, 1].map(() => (
+          <div class="marquee-inner">
+            {marquee.map((m) => (
+              <span>
+                {m} <i>✦</i>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <!-- ABOUT -->
+      <section id="about" class="section about">
+        <div class="section-label mono">(01) About</div>
+        <p id="about-text" class="about-text">
+          I'm a product engineer who lives where design meets code. I studied Electrical Engineering at
+          IIT Roorkee, fell in love with UI, motion and the tiny details that make software feel
+          alive, and have been shipping ever since. I like owning a problem end to end: talking to users,
+          sketching the flow, writing the code, and sweating the last 10%.
+        </p>
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <span class="stat-num"><span data-count="22">0</span>'</span>
+            <span class="mono">IIT Roorkee grad</span>
+          </div>
+          <div class="stat" data-reveal data-delay="0.1">
+            <span class="stat-num"><span data-count={projects.length + archive.length}>0</span>+</span>
+            <span class="mono">Things shipped</span>
+          </div>
+          <div class="stat" data-reveal data-delay="0.2">
+            <span class="stat-num">∞</span>
+            <span class="mono">Love for good UX</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOW -->
+      <section class="section now">
+        <div class="section-label mono">(02) Currently</div>
+        <div class="now-grid">
+          <div>
+            <h2 class="big-title" data-reveal-title>{now.title}</h2>
+            <p class="mono now-role" data-reveal>{now.role}</p>
+          </div>
+          <div>
+            <p class="now-blurb" data-reveal>{now.blurb}</p>
+            <ul class="now-products">
+              {now.products.map((p, i) => (
+                <li data-reveal data-delay={String(i * 0.1)}>
+                  <a href={p.url} target="_blank" rel="noopener" data-cursor="Visit">
+                    <span class="np-name">{p.name}</span>
+                    <span class="np-desc mono">{p.desc}</span>
+                    <span class="np-arrow">↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK RAIL -->
+      <section id="work" class="rail">
+        <div class="rail-head">
+          <div class="section-label mono">(03) Selected work</div>
+          <h2 class="big-title" data-reveal-title>Things I've built</h2>
+        </div>
+        <div class="rail-track">
+          {projects.map((p, i) => {
+            const Tag = p.url ? 'a' : 'article';
+            return (
+              <Tag
+                class="card"
+                href={p.url}
+                target={p.url ? '_blank' : undefined}
+                rel={p.url ? 'noopener' : undefined}
+                data-cursor={p.url ? 'Open' : undefined}
+                style={`--h:${p.hue}`}
+              >
+                <div class="card-media">
+                  <div class="card-art">
+                    {p.media?.video ? (
+                      <video src={p.media.video} poster={p.media.poster} muted loop playsinline preload="none" data-autoplay />
+                    ) : (
+                      <span class="card-glyph">{p.glyph}</span>
+                    )}
+                  </div>
+                  <span class="card-index mono">{pad(i + 1)}</span>
+                </div>
+                <div class="card-body">
+                  <div class="card-top mono">
+                    <span>{p.kind}</span>
+                    <span>{p.year}</span>
+                  </div>
+                  <h3>{p.name}</h3>
+                  <p>{p.desc}</p>
+                  <div class="card-tags">
+                    {p.tags.map((t) => (
+                      <span class="mono">{t}</span>
+                    ))}
+                  </div>
+                  {p.url && <span class="card-link mono">{p.linkLabel ?? 'Open'} ↗</span>}
+                </div>
+              </Tag>
+            );
+          })}
+          <div class="card card-end">
+            <p class="mono">More on</p>
+            <a href="https://github.com/mohdzaryab" target="_blank" rel="noopener" class="end-link" data-magnetic>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="rail-progress" aria-hidden="true"><span></span></div>
+      </section>
+
+      <!-- ARCHIVE -->
+      <section id="archive" class="section archive">
+        <div class="section-label mono">(04) Archive · the early years</div>
+        <ul class="archive-list">
+          {archive.map((a) => (
+            <li class="archive-row" data-image={a.image}>
+              <a href={a.url} target={a.url ? '_blank' : undefined} rel="noopener" data-cursor={a.url ? 'Open' : undefined}>
+                <span class="ar-year mono">{a.year}</span>
+                <span class="ar-name">{a.name}</span>
+                <span class="ar-desc">{a.desc}</span>
+                <span class="ar-tags mono">{a.tags}</span>
+                <span class="ar-org mono">{a.org}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- OFFSCREEN -->
+      <section class="section offscreen">
+        <div class="section-label mono">(05) Off-screen</div>
+        <div class="off-grid">
+          {offscreen.map((o, i) => (
+            <div class="off-item" data-reveal data-delay={String(i * 0.1)}>
+              <span class="off-emoji">{o.emoji}</span>
+              <span class="off-text">{o.text}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="section-label mono">(06) Contact</div>
+        <h2 class="contact-title">
+          <span class="line"><span data-reveal-title>Let's build</span></span>
+          <span class="line"><em data-reveal-title>something good.</em></span>
+        </h2>
+        <div class="contact-row">
+          <button class="email-btn" data-copy={profile.email} data-magnetic="0.25" data-cursor="Copy">
+            <span class="email-text">{profile.email}</span>
+            <span class="copy-hint mono">Click to copy</span>
+          </button>
+          <ul class="socials">
+            {profile.socials.map((s) => (
+              <li>
+                <a href={s.url} target="_blank" rel="noopener" data-magnetic>
+                  {s.label} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <footer class="footer mono">
+          <span>© {new Date().getFullYear()} {profile.name}</span>
+          <span>Built with Astro, Three.js, GSAP &amp; Lenis</span>
+          <a href="#top" data-magnetic>Back to top ↑</a>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      import '../scripts/main.ts';
+    </script>
+  </body>
+</html>
