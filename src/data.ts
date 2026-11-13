@@ -103,17 +103,6 @@ export const projects: Project[] = [
     hue: 150,
     glyph: '⧉',
   },
-  {
-    name: 'Kajal Paarwani Salon',
-    year: '2026',
-    kind: 'Client website',
-    desc: 'A polished marketing site for a beauty salon, covering services, gallery and booking.',
-    tags: ['Next.js', 'Sanity CMS', 'TypeScript'],
-    url: 'https://kajal-paarwani-salon.vercel.app',
-    linkLabel: 'Visit site',
-    hue: 340,
-    glyph: '✦',
-  },
 ];
 
 export const archive = [
