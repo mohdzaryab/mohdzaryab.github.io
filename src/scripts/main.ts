@@ -209,18 +209,36 @@ const previewImg = $<HTMLImageElement>('img', preview);
 if (fine) {
   const px = gsap.quickTo(preview, 'x', { duration: 0.5, ease: 'power3' });
   const py = gsap.quickTo(preview, 'y', { duration: 0.5, ease: 'power3' });
-  const list = $('.archive-list');
-  list.addEventListener('pointermove', (e) => {
-    px(e.clientX);
-    py(e.clientY);
-  });
-  $$<HTMLElement>('.archive-row').forEach((row) => {
-    row.addEventListener('pointerenter', () => {
+  // Hit-test on both pointer moves and scrolls: with smooth scrolling the rows
+  // move under a stationary cursor, so pointerenter/leave alone never fire.
+  let mouseX = -1;
+  let mouseY = -1;
+  let current: HTMLElement | null = null;
+  const update = () => {
+    if (mouseX < 0) return;
+    const row = document.elementFromPoint(mouseX, mouseY)?.closest<HTMLElement>('.archive-row') ?? null;
+    if (row === current) return;
+    current = row;
+    if (row) {
       previewImg.src = row.dataset.image!;
       gsap.to(preview, { opacity: 1, scale: 1, rotate: gsap.utils.random(-6, 6), duration: 0.4 });
-    });
+    } else {
+      gsap.to(preview, { opacity: 0, scale: 0.8, duration: 0.3 });
+    }
+  };
+  addEventListener('pointermove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    px(mouseX);
+    py(mouseY);
+    update();
   });
-  list.addEventListener('pointerleave', () => gsap.to(preview, { opacity: 0, scale: 0.8, duration: 0.3 }));
+  lenis.on('scroll', update);
+  document.addEventListener('pointerleave', () => {
+    mouseX = -1;
+    current = null;
+    gsap.to(preview, { opacity: 0, scale: 0.8, duration: 0.3 });
+  });
 }
 
 /* ---------- custom cursor ---------- */
