@@ -221,9 +221,9 @@ if (fine) {
     current = row;
     if (row) {
       previewImg.src = row.dataset.image!;
-      gsap.to(preview, { opacity: 1, scale: 1, rotate: gsap.utils.random(-6, 6), duration: 0.4 });
+      gsap.to(preview, { opacity: 1, scale: 1, rotate: gsap.utils.random(-6, 6), duration: 0.4, overwrite: 'auto' });
     } else {
-      gsap.to(preview, { opacity: 0, scale: 0.8, duration: 0.3 });
+      gsap.to(preview, { opacity: 0, scale: 0.8, duration: 0.3, overwrite: 'auto' });
     }
   };
   addEventListener('pointermove', (e) => {
@@ -237,7 +237,7 @@ if (fine) {
   document.addEventListener('pointerleave', () => {
     mouseX = -1;
     current = null;
-    gsap.to(preview, { opacity: 0, scale: 0.8, duration: 0.3 });
+    gsap.to(preview, { opacity: 0, scale: 0.8, duration: 0.3, overwrite: 'auto' });
   });
 }
 
